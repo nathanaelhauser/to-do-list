@@ -2,3 +2,14 @@
   margin-top: 50px;
   margin-left: 1%;
 }
+
+.td {
+  pointer-events: none;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+table {
+  z-index: -1;
+}
