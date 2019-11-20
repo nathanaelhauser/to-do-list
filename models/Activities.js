@@ -7,6 +7,5 @@ module.exports = (Model, DataTypes, sequelize) => {
     finished: DataTypes.BOOLEAN
   }, { sequelize, modelName: 'activity'})
 
-
   return Activies
 }
