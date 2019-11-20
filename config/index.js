@@ -1,3 +1,3 @@
 const Sequelize = require('sequelize')
 
-module.exports = new Sequelize('mysql://root:root@localhost/activities_db')
+module.exports = new Sequelize('mysql://root:groot@localhost/activities_db')

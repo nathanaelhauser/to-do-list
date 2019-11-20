@@ -1,18 +1,19 @@
-axios.get('/activites')
-.then(function(r) {
-    let newItem = document.createElement('tr')
-        newItem.innerHTML = `
-            <th>${item}</th>
-        `
-        document.getElementById('toDoList').append(newItem)
-        axios.put(`/activities/${e.target.id}`, {
-            finished: parseInt(e.target.dataset.finished) === 0 ? true : false
-        })
-        .then(() => {
-            window.location.reload()
-        })
-        .catch(e => console.error(e))
-})
+axios.get('/activities')
+    .then(function (r) {
+        console.log(r.data)
+        if(r.data !== []) {
+            r.data.forEach(activity => {
+                const newRow = `
+                    <tr> 
+                        <td>${activity.thing}</td>
+                        <td>${activity.finished}</td>
+                    </tr>
+                `
+                document.getElementById('itemTable').innerHTML += newRow
+            })
+        }
+    })
+    .catch(e => console.error(e))
 
 document.getElementById('addBtn').addEventListener('click', e => {
     e.preventDefault()
@@ -21,10 +22,10 @@ document.getElementById('addBtn').addEventListener('click', e => {
         finished: false
     }
     axios.post('/activities', item)
-    .then(() => {
-        window.location.reload()
-    })
-    .catch(e => console.error(e))
+        .then(() => {
+            window.location.reload()
+        })
+        .catch(e => console.error(e))
 })
 
 document.addEventListener('click', e => {
@@ -39,9 +40,9 @@ document.addEventListener('click', e => {
         axios.put(`/activities/${e.target.id}`, {
             finished: parseInt(e.target.dataset.finished) === 0 ? true : false
         })
-        .then(() => {
-            window.location.reload()
-        })
-        .catch(e => console.error(e))
+            .then(() => {
+                window.location.reload()
+            })
+            .catch(e => console.error(e))
     }
 })

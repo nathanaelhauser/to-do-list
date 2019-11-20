@@ -4,7 +4,7 @@ module.exports = (Model, DataTypes, sequelize) => {
 
   Activies.init({
     thing: DataTypes.STRING,
-    finished: DataTypes.BOOLEAN
+    finished: { type: DataTypes.BOOLEAN, defaultValue: '0' }
   }, { sequelize, modelName: 'activity'})
 
   return Activies
