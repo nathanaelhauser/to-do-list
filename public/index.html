@@ -3,39 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap css -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./style.css">
   <title>To Do List</title>
 </head>
 <body>
 
+    <!-- header -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">To Do List</h1>
         </div>
       </div>
 
-  <div class="container containerBody">
+    <!-- form container -->
+    <div class="container containerBody">
     
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <form id='item'>
-      <button class="btn btn-outline-secondary" type="button" id="addBtn">Add</button>
-      </form>
+    <!-- form -->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <form id='itemForm'>
+          <button class="btn btn-outline-secondary" type="button" id="addBtn">Add</button>
+            </form>
+        </div>
+      <input type="text" class="form-control" id="item" placeholder="To-Do" aria-describedby="button-addon1">
+      </div>
+
+    <!-- end form container -->
     </div>
-    <input type="text" class="form-control" placeholder="To-Do" aria-describedby="button-addon1">
-  </div>
 
-  <ul class="list-group" id='toDoList'>
+    <!-- items container -->
+    <div class="container">
       
-    </ul>
+    <ul class="list-group" id='toDoList'></ul>
 
-</div>
+    <!-- end items container -->
+    </div>
 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- axios script -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- bootstrap script -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="./app.js"></script>
+<!-- app.js script -->
+<script src="./app.js"></script>
 </body>
 </html>
