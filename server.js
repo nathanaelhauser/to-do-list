@@ -10,6 +10,6 @@ app.use(express.urlencoded({ extended: true }))
 
 require('./routes')(app)
 
-db.sync({ force: true })
+db.sync()
   .then(() => app.listen(process.env.PORT || 3000))
   .catch(e => console.log(e))

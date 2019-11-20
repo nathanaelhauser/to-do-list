@@ -4,9 +4,9 @@ axios.get('/activities')
         if(r.data !== []) {
             r.data.forEach(activity => {
                 const newRow = `
-                    <tr> 
-                        <td>${activity.thing}</td>
-                        <td>${activity.finished}</td>
+                    <tr class="thing" data-thingid="${activity.id}" data-finished="${activity.finished}"> 
+                        <td class="thing" data-thingid="${activity.id}" data-finished="${activity.finished}">${activity.thing}</td>
+                        <td class="thing" data-thingid="${activity.id}" data-finished="${activity.finished}">${activity.finished}</td>
                     </tr>
                 `
                 document.getElementById('itemTable').innerHTML += newRow
@@ -29,16 +29,12 @@ document.getElementById('addBtn').addEventListener('click', e => {
 })
 
 document.addEventListener('click', e => {
-    if (e.target.className === 'item') {
+    console.log(e.target)
+    if (e.target.className === 'thing') {
         console.log(e.target.dataset.finished)
-        console.log(e.target.id)
-        let newItem = document.createElement('tr')
-        newItem.innerHTML = `
-            <th>${item}</th>
-        `
-        document.getElementById('toDoList').append(newItem)
-        axios.put(`/activities/${e.target.id}`, {
-            finished: parseInt(e.target.dataset.finished) === 0 ? true : false
+        console.log(e.target.dataset.thingid)
+        axios.put(`/activities/${e.target.dataset.thingid}`, {
+            finished: e.target.dataset.finished === 'false' ? true : false
         })
             .then(() => {
                 window.location.reload()
