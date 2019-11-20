@@ -3,7 +3,7 @@ module.exports = (Model, DataTypes, sequelize) => {
   class Activies extends Model {}
 
   Activies.init({
-    name: DataTypes.STRING,
+    thing: DataTypes.STRING,
     finished: DataTypes.BOOLEAN
   }, { sequelize, modelName: 'activity'})
 
